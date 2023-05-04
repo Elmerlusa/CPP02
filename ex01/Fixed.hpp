@@ -35,7 +35,6 @@ class	Fixed
 		int		toInt(void) const;
 };
 
-
 std::ostream&	operator<<(std::ostream& ostr, const Fixed& fixedNum);
 
 #endif
