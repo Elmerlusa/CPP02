@@ -49,54 +49,82 @@ Fixed&	Fixed::operator=(const Fixed& fixedNum)
 	return *this;
 }
 
-bool	Fixed::operator>(const Fixed& fixedNum1, const Fixed& fixedNum2) const
+bool	Fixed::operator>(const Fixed& fixedNum) const
 {
-	return fixedNum1.toFloat() > fixedNum2.toFloat();
+	return this->toFloat() > fixedNum.toFloat();
 }
 
-bool	Fixed::operator<(const Fixed& fixedNum1, const Fixed& fixedNum2) const
+bool	Fixed::operator<(const Fixed& fixedNum) const
 {
-	return fixedNum1.toFloat() < fixedNum2.toFloat();
+	return this->toFloat() < fixedNum.toFloat();
 }
 
-bool	Fixed::operator>=(const Fixed& fixedNum1, const Fixed& fixedNum2) const
+bool	Fixed::operator>=(const Fixed& fixedNum) const
 {
-	return fixedNum1.toFloat() >= fixedNum2.toFloat();
+	return this->toFloat() >= fixedNum.toFloat();
 }
 
-bool	Fixed::operator<=(const Fixed& fixedNum1, const Fixed& fixedNum2) const
+bool	Fixed::operator<=(const Fixed& fixedNum) const
 {
-	return fixedNum1.toFloat() <= fixedNum2.toFloat();
+	return this->toFloat() <= fixedNum.toFloat();
 }
 
-bool	Fixed::operator==(const Fixed& fixedNum1, const Fixed& fixedNum2) const
+bool	Fixed::operator==(const Fixed& fixedNum) const
 {
-	return fixedNum1.toFloat() == fixedNum2.toFloat();
+	return this->toFloat() == fixedNum.toFloat();
 }
 
-bool	Fixed::operator!=(const Fixed& fixedNum1, const Fixed& fixedNum2) const
+bool	Fixed::operator!=(const Fixed& fixedNum) const
 {
-	return fixedNum1.toFloat() != fixedNum2.toFloat();
+	return this->toFloat() != fixedNum.toFloat();
 }
 
-Fixed	Fixed::operator+(const Fixed& fixedNum1, const Fixed& fixedNum2) const
+Fixed	Fixed::operator+(const Fixed& fixedNum) const
 {
-	return Fixed(fixedNum1.toFloat() + fixedNum2.toFloat());
+	return Fixed(this->toFloat() + fixedNum.toFloat());
 }
 
-Fixed	Fixed::operator-(const Fixed& fixedNum1, const Fixed& fixedNum2) const
+Fixed	Fixed::operator-(const Fixed& fixedNum) const
 {
-	return Fixed(fixedNum1.toFloat() - fixedNum2.toFloat());
+	return Fixed(this->toFloat() - fixedNum.toFloat());
 }
 
-Fixed	Fixed::operator*(const Fixed& fixedNum1, const Fixed& fixedNum2) const
+Fixed	Fixed::operator*(const Fixed& fixedNum) const
 {
-	return Fixed(fixedNum1.toFloat() * fixedNum2.toFloat());
+	return Fixed(this->toFloat() * fixedNum.toFloat());
 }
 
-Fixed	Fixed::operator/(const Fixed& fixedNum1, const Fixed& fixedNum2) const
+Fixed	Fixed::operator/(const Fixed& fixedNum) const
 {
-	return Fixed(fixedNum1.toFloat() / fixedNum2.toFloat());
+	return Fixed(this->toFloat() / fixedNum.toFloat());
+}
+
+Fixed	Fixed::operator++(void)
+{
+	this->num++;
+	return *this;
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	value(*this);
+
+	this->num++;
+	return value;
+}
+
+Fixed	Fixed::operator--(void)
+{
+	this->num--;
+	return Fixed(*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	value(*this);
+
+	this->num--;
+	return value;
 }
 
 int	Fixed::getRawBits(void) const
@@ -118,6 +146,26 @@ float	Fixed::toFloat(void) const
 int		Fixed::toInt(void) const
 {
 	return this->num >> this->binaryPointPos;
+}
+
+Fixed&	Fixed::min(Fixed& fixedNum1, Fixed& fixedNum2)
+{
+	return (fixedNum1 < fixedNum2) ? fixedNum1 : fixedNum2;
+}
+
+const Fixed&	Fixed::min(const Fixed& fixedNum1, const Fixed& fixedNum2)
+{
+	return (fixedNum1 < fixedNum2) ? fixedNum1 : fixedNum2;
+}
+
+Fixed&	Fixed::max(Fixed& fixedNum1, Fixed& fixedNum2)
+{
+	return (fixedNum1 > fixedNum2) ? fixedNum1 : fixedNum2;
+}
+
+const Fixed&	Fixed::max(const Fixed& fixedNum1, const Fixed& fixedNum2)
+{
+	return (fixedNum1 > fixedNum2) ? fixedNum1 : fixedNum2;
 }
 
 std::ostream&	operator<<(std::ostream& ostr, const Fixed& fixedNum)
