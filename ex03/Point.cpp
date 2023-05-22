@@ -44,3 +44,13 @@ Point&	Point::operator=(const Point& point)
 	new (this) Point(point);
 	return *this;
 }
+
+bool	Point::operator==(const Point& point) const
+{
+	return this->getX() == point.getX() && this->getY() == point.getY();
+}
+
+std::ostream&	operator<<(std::ostream& ostr, const Point& point)
+{
+	return ostr << "Point(" << point.getX() << ", " << point.getY() << ")";
+}

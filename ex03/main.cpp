@@ -18,13 +18,13 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 int	main(void)
 {
-	Point a(Fixed(5.5f), Fixed(3));
-	Point b;
-	
-	b = a;
-	std::cout << "POINT A -> X: " << a.getX()
-		<< " Y: " << a.getY() << std::endl;
-	std::cout << "POINT B -> X: " << b.getX()
-		<< " Y: " << b.getY() << std::endl;
+	Point	a;
+	Point	b(Fixed(0), Fixed(10.5f));
+	Point	c(Fixed(10.5f), Fixed(0));
+	Point	d(Fixed(0.5f), Fixed(8));
+	bool	inside = bsp(a, b, c, d);
+
+	std::cout << d << (inside ? "" : " no")
+		<< " está contenido en el triángulo" << std::endl;
 	return 0;
 }

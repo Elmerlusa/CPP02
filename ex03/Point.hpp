@@ -30,6 +30,9 @@ class	Point
 		Fixed	getY(void) const;
 
 		Point&	operator=(const Point& point);
+		bool	operator==(const Point& point) const;
 };
+
+std::ostream&	operator<<(std::ostream& ostr, const Point& point);
 
 #endif
