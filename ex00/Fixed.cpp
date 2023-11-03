@@ -12,6 +12,8 @@
 
 #include "Fixed.hpp"
 
+const int	Fixed::binaryPointPos = 8;
+
 Fixed::Fixed(void)
 {
 	std::cout << "Default constructor called" << std::endl;

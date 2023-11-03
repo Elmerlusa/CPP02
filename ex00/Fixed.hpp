@@ -19,7 +19,7 @@ class	Fixed
 {
 	private:
 		int					num;
-		static const int	binaryPointPos = 8;
+		static const int	binaryPointPos;
 	public:
 		Fixed(void);
 		Fixed(const Fixed& fixedNum);
