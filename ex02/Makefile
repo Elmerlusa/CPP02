@@ -28,16 +28,16 @@ test:		${NAME}
 		./${NAME}
 
 ${NAME}:	${CPPO}
-		@${CPP} ${FLAGS} ${CPPO} -o ${NAME}
+		${CPP} ${FLAGS} ${CPPO} -o ${NAME}
 
 %.o: 		%.cpp
-		@$(CPP) $(FLAGS) -c $< -o $@
+		$(CPP) $(FLAGS) -c $< -o $@
 
 re:			fclean all
 
 fclean:		clean
-		@${RM} ${NAME}
+		${RM} ${NAME}
 
 clean:
-		@${RM} ${CPPO}
+		${RM} ${CPPO}
 ########################################################

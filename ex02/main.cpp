@@ -48,8 +48,8 @@ int main( void ) {
 
 		std::cout << "PREINCREMENTO DE A: " << ++a << std::endl;
 		std::cout << "POSTINCREMENTO DE A: " << a++ << std::endl;
-		std::cout << "PREDECREMENTO DE A: " << --a << std::endl;
 		std::cout << "POSTDECREMENTO DE A: " << a-- << std::endl;
+		std::cout << "PREDECREMENTO DE A: " << --a << std::endl;
 
 		std::cout << "MIN: " << Fixed::min(a, b) << std::endl;
 		std::cout << "MAX: " << Fixed::max(a, b) << std::endl;
